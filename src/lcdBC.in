@@ -1,0 +1,2 @@
+#!/bin/sh
+@LLVM_TOOLS_BINARY_DIR@/opt -basicaa -load @LOCALCONCURRENCYDETECTION_LIB@ -lcd "$@"
