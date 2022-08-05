@@ -96,7 +96,6 @@ void LocalConcurrencyDetection::GetRMAstatistics(Function *F){
                 }
 		if(I.getOpcode()==Instruction::BitCast){
 			if(I.getOperand(0)->getName().startswith ("mpi_")){
-				//GreenErr() << "PARCOACH DEBUG: Found a MPI function \n "; 
 				count_MPI++;
 				CountMPIfuncFORTRAN(I);
 
@@ -108,7 +107,6 @@ void LocalConcurrencyDetection::GetRMAstatistics(Function *F){
 			{
 				//errs() << calledFunction->getName() << "\n"; 
 				if(calledFunction->getName().startswith ("MPI_")){
-					//GreenErr() << "PARCOACH DEBUG: Found a MPI function \n "; 
 					//I.print(errs());
 					count_MPI++;
 					CountMPIfuncC(I, calledFunction);
@@ -451,9 +449,9 @@ bool LocalConcurrencyDetection::runOnModule(Module &M)
 	DataLayout* datalayout = new DataLayout(&M);
 	auto CyanErr = []() { return WithColor(errs(), raw_ostream::Colors::CYAN); };
 
-	MagentaErr() << "===========================\n";
-	MagentaErr() << "===  PARCOACH ANALYSIS  ===\n";
-	MagentaErr() << "===========================\n";
+	MagentaErr() << "===============================================\n";
+	MagentaErr() << "===  LOCAL CONCURRENCY DETECTION  ANALYSIS  ===\n";
+	MagentaErr() << "===============================================\n";
 
 
 
