@@ -3,8 +3,8 @@ The LocalConcurrencyDetection pass detects local concurrency errors in a MPI RMA
 
 ### Prerequisites
 
-#### CMake `>= 3.12`
-#### LLVM `= 9.0.x`
+#### CMake `>= 3.18`
+#### LLVM `>= 9.0`
 
 
 ### Installation
