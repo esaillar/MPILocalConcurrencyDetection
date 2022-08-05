@@ -58,14 +58,3 @@ cd path_to_LocalConcurrencyDetection
 llvm-dis somethingINSTR.bc
 ```
 And open the generated file somethingINSTR.ll
-
-#### To execute the program after the pass
-
-```bash
-cd path_to_LocalConcurrencyDetection
-clang -c -emit-llvm something.c
-opt -load build/src/LocalConcurrencyDetection.so -lcd something.bc -o somethingINSTR.bc
-clang -c somethingINSTR.bc
-OMPI_CC=clang mpicc somethingINSTR.o -L./lib/ -lrma_analyzer
-mpirun -np 4 --oversubscribe ./a.out
-```
