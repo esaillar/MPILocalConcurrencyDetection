@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.18)
 project(LocalConcurrencyDetection)
 
 message("You need LLVM 9 or higher to build this project")
