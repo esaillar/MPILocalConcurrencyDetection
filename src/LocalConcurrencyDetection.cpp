@@ -85,8 +85,6 @@ void LocalConcurrencyDetection::CountMPIfuncC(Instruction &I, Function *calledFu
 void LocalConcurrencyDetection::GetRMAstatistics(Function *F){
 
 	for(Instruction &I : instructions(F)) {
-		//I.print(errs());
-		//errs() << "\n";
 		DebugLoc dbg = I.getDebugLoc(); // get debug infos
                 int line = 0;
                 StringRef file = "";
@@ -101,13 +99,10 @@ void LocalConcurrencyDetection::GetRMAstatistics(Function *F){
 
 			}
 		}else if (CallBase *cb = dyn_cast<CallBase>(&I)) {
-		//}else if (CallInst *ci = dyn_cast<CallInst>(&I)) {
 			
 			if (Function *calledFunction = cb->getCalledFunction())
 			{
-				//errs() << calledFunction->getName() << "\n"; 
 				if(calledFunction->getName().startswith ("MPI_")){
-					//I.print(errs());
 					count_MPI++;
 					CountMPIfuncC(I, calledFunction);
 				}
